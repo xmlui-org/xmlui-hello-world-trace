@@ -1,0 +1,37 @@
+name: Release Zip
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Tag name to release (e.g., v1.0.0)"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    env:
+      TAG_NAME: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.tag || github.ref_name }}
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Create zip archive
+        run: |
+          zip -r xmlui-hello-world-trace.zip index.html index.ts package.json tsconfig.json test.sh src/ public/
+
+      - name: Publish release assets
+        uses: softprops/action-gh-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ env.TAG_NAME }}
+          target_commitish: ${{ github.sha }}
+          files: xmlui-hello-world-trace.zip
+          body: |
+            To run locally:
+            - Install the [XMLUI CLI](https://github.com/xmlui-org/xmlui-cli/releases)
+            - `xmlui run https://github.com/xmlui-org/xmlui-hello-world-trace/releases/latest/download/xmlui-hello-world-trace.zip`
