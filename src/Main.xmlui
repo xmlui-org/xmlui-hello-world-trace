@@ -1,0 +1,16 @@
+<App>
+  <AppHeader title="Hello World">
+    <property name="profileMenuTemplate">
+      <Inspector />
+    </property>
+  </AppHeader>
+  <Pages fallbackPath="/">
+    <Page url="/">
+      <VStack padding="$space-6" gap="$space-4">
+        <H1>Hello World</H1>
+        <Text>Welcome to your XMLUI application.</Text>
+        <Button label="Click me" onClick="console.log('Button clicked')" />
+      </VStack>
+    </Page>
+  </Pages>
+</App>

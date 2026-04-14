@@ -1,0 +1,13 @@
+{
+  "name": "@nsoftware/xmlui-hello-world-trace",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "start": "xmlui start",
+    "build": "xmlui build",
+    "preview": "xmlui preview"
+  },
+  "dependencies": {
+    "xmlui": "0.12.14"
+  }
+}

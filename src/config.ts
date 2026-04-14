@@ -1,0 +1,16 @@
+import { StandaloneAppDescription } from "xmlui";
+
+const App: StandaloneAppDescription = {
+  name: "Hello World",
+  version: "0.0.1",
+  appGlobals: {
+    useHashBasedRouting: false,
+    xsVerbose: true,
+    xsVerboseLogMax: 200,
+  },
+  resources: {
+    favicon: "resources/favicon.ico",
+  },
+};
+
+export default App;
