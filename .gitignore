@@ -8,9 +8,6 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-dist
-dist-ssr
-*.local
 
 # Editor directories and files
 .vscode/*
@@ -21,12 +18,3 @@ dist-ssr
 *.ntvs*
 *.njsproj
 *.sw?
-
-# .NET build artifacts
-backend/**/bin/
-backend/**/obj/
-
-# SQLite database files
-*.db
-*.db-shm
-*.db-wal
